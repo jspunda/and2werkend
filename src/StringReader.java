@@ -15,14 +15,16 @@ public class StringReader {
 		char head = input.charAt(0);
 			if (head == '(') {
 				String temp = builder.toString();
-				builder = new StringBuilder();
+				builder.setLength(0);
+				builder.trimToSize();
 				return new FExp(temp, buildExp(splitComma(input)[0]), buildExp(splitComma(input)[1]));
 			} 
 			else {
 				builder.append(head);
 				if(input.length() == 1) {
 					String temp2 = builder.toString();
-					builder = new StringBuilder();
+					builder.setLength(0);
+					builder.trimToSize();
 					return new SExp(temp2);
 				}
 				else {
